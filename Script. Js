@@ -1,0 +1,46 @@
+function submitReport() {
+    const category = document.getElementById("category").value;
+    const location = document.getElementById("location").value;
+    const problem = document.getElementById("problem").value;
+    const solution = document.getElementById("solution").value;
+    const mode = document.getElementById("mode").value;
+
+    if (!category || !problem || !solution) {
+        alert("Please complete required fields.");
+        return;
+    }
+
+    const report = {
+        category,
+        location,
+        problem,
+        solution,
+        mode
+    };
+
+    let reports = JSON.parse(localStorage.getItem("reports")) || [];
+    reports.push(report);
+    localStorage.setItem("reports", JSON.stringify(reports));
+
+    displayReports();
+}
+
+function displayReports() {
+    const reportsDiv = document.getElementById("reports");
+    reportsDiv.innerHTML = "";
+
+    let reports = JSON.parse(localStorage.getItem("reports")) || [];
+
+    reports.forEach(r => {
+        reportsDiv.innerHTML += `
+            <div class="report-card">
+                <strong>${r.category}</strong> - ${r.location || "No location"}<br>
+                <p><b>Problem:</b> ${r.problem}</p>
+                <p><b>Solution:</b> ${r.solution}</p>
+                <small>Mode: ${r.mode}</small>
+            </div>
+        `;
+    });
+}
+
+displayReports();
