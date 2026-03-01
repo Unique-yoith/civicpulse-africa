@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CivicPulse Africa - Ghana Pilot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>CivicPulse Africa</h1>
+        <p>Youth Feedback Lab - Ghana Pilot 🇬🇭</p>
+    </header>
+
+    <section class="form-section">
+        <h2>Submit Feedback</h2>
+
+        <select id="category">
+            <option value="">Select Category</option>
+            <option>Education</option>
+            <option>Healthcare</option>
+            <option>Youth Employment</option>
+            <option>Infrastructure</option>
+            <option>Digital Services</option>
+            <option>Entrepreneurship Support</option>
+        </select>
+
+        <input type="text" id="location" placeholder="Location (City/Region)">
+
+        <textarea id="problem" placeholder="Describe the problem (short and clear)"></textarea>
+
+        <textarea id="solution" placeholder="Suggested solution (required)"></textarea>
+
+        <select id="mode">
+            <option>Anonymous</option>
+            <option>Verified</option>
+        </select>
+
+        <button onclick="submitReport()">Submit</button>
+    </section>
+
+    <section class="reports-section">
+        <h2>Submitted Reports</h2>
+        <div id="reports"></div>
+    </section>
+
+    <footer>
+        <p>Built by a young African innovator 🚀</p>
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
